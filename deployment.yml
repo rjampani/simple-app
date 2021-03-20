@@ -1,0 +1,27 @@
+- name: ec2 launch configuration
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks: 
+    - name: create ec2 launch configuration
+      ec2_lc: 
+        name: launchconfiguration-v2
+        image_id: ami-042e8287309f5df03
+        instance_type: t2.micro
+        key_name: aws_devops
+        region: us-east-1
+        user_data_path: /home/vagrant/ansible-playbooks/aws-ansible/bootstrap.sh
+      register: ec2_lc
+    
+    - name: create auto scaling group
+      ec2_asg: 
+        name: app-auto-scaling-group
+        region: us-east-1
+        availability_zones: ['us-east-1a', 'us-east-1b']
+        launch_config_name: "{{ec2_lc.name}}"
+        min_size: 1
+        max_size: 1
+        desired_capacity: 1
+        replace_all_instances: yes
+        wait_for_instances: yes
