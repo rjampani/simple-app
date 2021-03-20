@@ -210,7 +210,7 @@ resource "aws_security_group" "sg_allow_bastion_ssh_22" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["172.16.4.0/24"]
+        cidr_blocks = ["172.16.8.0/24"]
     }
     egress {
         from_port = 0

@@ -2,8 +2,8 @@
 
 sudo apt-get update
 sudo apt-get install -y openjdk-8-jre-headless
-sudo apt-get install sudo apt-get install python3-pi
-pip install awscli --upgrade --user
+sudo apt-get install sudo apt-get install python3-pip
+pip3 install awscli --upgrade --user
 export AWS_ACCESS_KEY_ID=XXXXXXXXXX
 export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXX
 export AWS_DEFAULT_REGION=us-east-1
@@ -43,5 +43,5 @@ sudo mv /tmp/tomcat.service /etc/systemd/system/tomcat.service
 sudo systemctl daemon-reload
 sudo systemctl start tomcat
 sudo systemctl enable tomcat
-mv /tmp/simple-app.war /opt/tomcat/latest/webapps
+sudo mv /tmp/simple-app.war /opt/tomcat/latest/webapps
 sudo systemctl restart tomcat

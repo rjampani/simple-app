@@ -10,11 +10,10 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'echo "WORKSPACE=$WORKSPCE"'
                 sh 'mvn clean package'
             }
         }
-        stage('push artifacts') {
+        stage('push-artifacts') {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh 'aws s3 cp target/simple-app.war s3://simple-app-artifact-store'
