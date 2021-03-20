@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        label 'jnode'
+    }
+    stages {
+        stage('pull') {
+            steps {
+                git credentialsId: 'git', branch: 'main', url: 'https://github.com/rjampani/simple-app.git'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh 'ansible-playbook deployment.yml'
+            }
+        }
+    }
+}

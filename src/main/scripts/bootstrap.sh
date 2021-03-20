@@ -4,8 +4,8 @@ sudo apt-get update
 sudo apt-get install -y openjdk-8-jre-headless
 sudo apt-get install sudo apt-get install python3-pi
 pip install awscli --upgrade --user
-export AWS_ACCESS_KEY_ID=AKIATOOROYR3MSDQEJEW
-export AWS_SECRET_ACCESS_KEY=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
+export AWS_ACCESS_KEY_ID=XXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXX
 export AWS_DEFAULT_REGION=us-east-1
 sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomca
 wget https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.44/bin/apache-tomcat-9.0.44.tar.gz -P /tmp
