@@ -38,10 +38,10 @@ ExecStop=/opt/tomcat/latest/bin/shutdown.sh
 [Install]
 WantedBy=multi-user.target
 EOF
+aws s3 mv s3://simple-app-artifact-store/simple-app.war /tmp/
 sudo mv /tmp/tomcat.service /etc/systemd/system/tomcat.service
 sudo systemctl daemon-reload
 sudo systemctl start tomcat
 sudo systemctl enable tomcat
-aws s3 cp s3://simple-app-artifact-store/simple-app.war /tmp
 mv /tmp/simple-app.war /opt/tomcat/latest/webapps
 sudo systemctl restart tomcat
