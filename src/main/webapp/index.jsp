@@ -12,8 +12,8 @@
 	        <hr/>
 	        <br/><br/><br/><br/><br/><br/><br/>
 	        <hr style="clear: both;"/>
-	        Server IP: <%=request.getLocalAddr()%><br/>
-	        Server HostName: <%=request.getLocalName()%><br/>
+	        Server IP: <%=InetAddress.getLocalHost().getHostAddress()%><br/>
+	        Server HostName: <%=InetAddress.getLocalHost().getHostName()%><br/>
         </div>
     </body>
 </html>
